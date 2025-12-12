@@ -11,6 +11,12 @@ base {
 }
 
 repositories {
+	// Loom / Minecraft / Fabric
+	mavenCentral()
+	mavenLocal()
+	maven { url "https://libraries.minecraft.net" }
+	maven { url "https://maven.fabricmc.net/" }
+
 	// Dev Auth
 	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
 
