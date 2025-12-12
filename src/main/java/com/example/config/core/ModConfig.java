@@ -5,8 +5,9 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
 // final fields will crash the game when saving
+// static fields will not save
 @SuppressWarnings("CanBeFinal")
 @Config(name = ExampleMod.MOD_ID)
 public class ModConfig implements ConfigData {
-    public static boolean test = true;
+    public boolean test = true;
 }
