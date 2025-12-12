@@ -6,6 +6,7 @@ import com.example.util.StringUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
+import org.jspecify.annotations.NonNull;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.CompletableFuture;
@@ -39,7 +40,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.@NonNull WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         // key categories
         translationBuilder.add(
                 "key.category.%s.main".formatted(ExampleMod.MOD_ID),
