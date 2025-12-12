@@ -5,14 +5,14 @@ import com.example.config.core.ModConfig;
 import com.example.util.StringUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
 import org.jspecify.annotations.NonNull;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.CompletableFuture;
 
 public class EnglishLangProvider extends FabricLanguageProvider {
-    public EnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    protected EnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
@@ -40,7 +40,7 @@ public class EnglishLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.@NonNull WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.@NonNull Provider provider, TranslationBuilder translationBuilder) {
         // key categories
         translationBuilder.add(
                 "key.category.%s.main".formatted(ExampleMod.MOD_ID),
