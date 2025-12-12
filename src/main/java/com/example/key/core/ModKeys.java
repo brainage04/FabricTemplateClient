@@ -14,17 +14,17 @@ public class ModKeys {
     public static final KeyMapping TEST_KEY = KeyBindingHelper.registerKeyBinding(new KeyMapping(
             "key.%s.testKey".formatted(ExampleMod.MOD_ID),
             InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_R,
+            GLFW.GLFW_KEY_UNKNOWN,
             MAIN_CATEGORY
     ));
 
     public static void initialize() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (TEST_KEY.isDown()) {
+            while (TEST_KEY.consumeClick()) {
                 // used for instant/discrete actions such as toggles
             }
 
-            while (TEST_KEY.consumeClick()) {
+            if (TEST_KEY.isDown()) {
                 // used for continuous actions such as mining blocks
             }
         });
